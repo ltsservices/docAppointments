@@ -1,3 +1,26 @@
+<?php
+include ("auth.inc.php");
+login();
+
+if(isset($_GET["page"])){
+    $page=$_GET["page"];
+    if(strpos($page,"/") === true){
+        die("");
+    }
+}else{
+    $page="main";
+}
+
+function addMenuLink($name, $text){
+    global $page;
+    if($page == $name){
+        $class='class="active"';
+    }else{
+        $class='';
+    }
+    echo '<li '.$class.'><a href="?page='.$name.'">'.$text.'</a></li>';
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +28,7 @@
         <title>Gestion de la patientèle</title>
         <link rel='stylesheet' href='fullcalendar-2.2.3/fullcalendar.css' rel='stylesheet' />
         <link rel='stylesheet' href='fullcalendar-2.2.3/lib/cupertino/jquery-ui.min.css' />
+        <link rel='stylesheet' href='banner.css' />
         <link rel='stylesheet' href='docAppointments.css' />
         <link rel='stylesheet' href='fullcalendar-2.2.3/fullcalendar.print.css' media='print' />
 
@@ -45,13 +69,13 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Accueil</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <?php addMenuLink("main", "Accueil"); ?>
+                        <?php addMenuLink("stats", "Statistiques"); ?>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="./stats/">Statistiques</a></li>
+                                 <?php addMenuLink("backup.php", "Backup"); ?>
                             </ul>
                         </li>
                     </ul>
@@ -65,6 +89,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">05 62 18 84 70</a></li>
+                        <li><a href="signout.php">Se déconnecter</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -72,22 +97,15 @@
 
         <!-- Begin page content -->
         <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Notes <span id="sticky_saved">&nbsp;</span></h3>
-                        </div>
-                        <div class="panel-body">
-                            <textarea id="sticky_area" class="sticky_area" name="sticky" cols="15" rows="12"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <div id='calendar'></div>
-                    <div style='clear: both'></div>
-                </div>
-            </div>
+            <?php
+                // Include the correct page
+                $page_include="pages/".$page.".php";
+                 if(file_exists($page_include)){
+                     include $page_include;
+                 }else{
+                     include "pages/notfound.php";
+                 }
+            ?>
         </div>
 
         <footer class="footer">
