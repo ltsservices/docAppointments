@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset='utf-8' />
-<link href='fullcalendar-2.2.3/fullcalendar.css' rel='stylesheet' />
-<link rel='stylesheet' href='fullcalendar-2.2.3/lib/cupertino/jquery-ui.min.css' />
-<link href='docAppointments.css' rel='stylesheet' />
-<link href='fullcalendar-2.2.3/fullcalendar.print.css' rel='stylesheet'
-	media='print' />
-<script src='fullcalendar-2.2.3/lib/moment.min.js'></script>
-<script src='fullcalendar-2.2.3/lib/jquery.min.js'></script>
-<script src='fullcalendar-2.2.3/lib/jquery-ui.custom.min.js'></script>
-<script src='fullcalendar-2.2.3/fullcalendar.min.js'></script>
+    <head>
+        <meta charset='utf-8' />
 
-<!-- Doc appointments -->
-<script src='fullcalendar-2.2.3/lang-all.js'></script>
-<script src='docAppointments.js'></script>
-</head>
+        <link rel='stylesheet' href='fullcalendar-2.2.3/fullcalendar.css' rel='stylesheet' />
+        <link rel='stylesheet' href='fullcalendar-2.2.3/lib/cupertino/jquery-ui.min.css' />
+        <link rel='stylesheet' href='docAppointments.css' />
+        <link rel='stylesheet' href='fullcalendar-2.2.3/fullcalendar.print.css' media='print' />
 
-<body>
-	<div id='wrap'>
+        <script type="text/javascript" src='fullcalendar-2.2.3/lib/moment.min.js'></script>
+        <script type="text/javascript" src='fullcalendar-2.2.3/lib/jquery.min.js'></script>
+        <script type="text/javascript" src='fullcalendar-2.2.3/lib/jquery-ui.custom.min.js'></script>
+        <script type="text/javascript" src='fullcalendar-2.2.3/fullcalendar.min.js'></script>
 
-		<div id='external-events'>
-			<h4>Draggable Events</h4>
-			<div class='fc-event'>My Event 1</div>
-			<div class='fc-event'>My Event 2</div>
-			<div class='fc-event'>My Event 3</div>
-			<div class='fc-event'>My Event 4</div>
-			<div class='fc-event'>My Event 5</div>
-			<p>
-				<input type='checkbox' id='drop-remove' /> <label for='drop-remove'>remove
-					after drop</label>
-			</p>
-		</div>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-		<div id='calendar'></div>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
-		<div style='clear: both'></div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-	</div>
-</body>
+        <!-- Doc appointments -->
+        <script type="text/javascript" src='fullcalendar-2.2.3/lang-all.js'></script>
+        <script type="text/javascript" src='docAppointments.js'></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Gestion de la patientèle</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Accueil</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Patient...">
+                        </div>
+                        <button type="submit" class="btn btn-default">Rechercher</button>
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">05 62 18 84 70</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Notes <span id="sticky_saved">&nbsp;</span></h3>
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="sticky_area" class="sticky_area" name="sticky" cols="15" rows="12"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div id='calendar'></div>
+                    <div style='clear: both'></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">LTS Services</p>
+            </div>
+        </footer>
+    </body>
 </html>

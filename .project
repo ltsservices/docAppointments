@@ -4,14 +4,4 @@
 	<comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
 	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.vjet.eclipse.core.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.vjet.core.nature</nature>
-	</natures>
 </projectDescription>
