@@ -46,8 +46,9 @@ body > .container {
 }
 
 .sticky_area{
-     border: 1px dashed #888;
+    border: 1px dashed #888;
     background: #F7FAD2;
+    resize: none;
 }
 
 /** Colorize the events */

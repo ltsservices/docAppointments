@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8' />
-
+        <title>Gestion de la patientèle</title>
         <link rel='stylesheet' href='fullcalendar-2.2.3/fullcalendar.css' rel='stylesheet' />
         <link rel='stylesheet' href='fullcalendar-2.2.3/lib/cupertino/jquery-ui.min.css' />
         <link rel='stylesheet' href='docAppointments.css' />
@@ -25,6 +25,10 @@
         <!-- Doc appointments -->
         <script type="text/javascript" src='fullcalendar-2.2.3/lang-all.js'></script>
         <script type="text/javascript" src='docAppointments.js'></script>
+        <script type="text/javascript" src='sticky.js'></script>
+
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
     </head>
 
     <body>
